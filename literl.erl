@@ -20,7 +20,7 @@ translate_lines(Mode, In, Out) ->
     end.
 
 translate_line(Mode, Src_line, Out) ->
-    case {Mode, line_type(re:run(Src_line, "^ *%+ *(.*)$|^ +$|^$",
+    case {Mode, line_type(re:run(Src_line, "^%+ *(.*)$|^ +$|^$",
                                  [{capture, all_but_first, binary}]))} of
         {markdown, {markdown, Line}} ->
             markdown(Out, Line),

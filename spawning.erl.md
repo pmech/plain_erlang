@@ -20,9 +20,7 @@ is working
 The first test function
 ```erlang
    test() ->
-```
-Just return ok
-```erlang
+       %% Just return ok
        ok.
 ```
 
