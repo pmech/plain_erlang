@@ -30,13 +30,15 @@ into regular erlang code by prepending %% for all non-code lines in
 the md files.  Last it uses the make module from the tools appliction
 to compile the erlang files to beam.
 
+```erlang
     make() ->
       foreach_md_file(fun compile/1),
       make:all([load]).
-
+```
 Compile an markdown file if it is younger that its corresponding
 Erlang-file.
 
+```erlang
     compile(Md_filename) ->
       Erl_filename = erl_filename(Md_filename),
       case younger_than(Md_filename, Erl_filename) of
@@ -48,16 +50,17 @@ Erlang-file.
           file:close(Out);
         false -> ok
       end.
-
+```
 Compiles a line from a markdown file.  Works by adding Erlang comments
 (%%) in front of all non-code-block lines in the markdown file.
 
+```erlang
     compile_line(Line, Out) ->
       case code_block_line_p(Line) of
         true  -> file:write(Out, Line);
         false -> file:write(Out, comment_line(Line))
       end.
-
+```
 A code-block line is identified by not having a non-white-space
 character as the first character in the line.
 
