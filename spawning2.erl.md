@@ -2,18 +2,23 @@
 This is a test for Literate Programming
 =======================================
 
-## Module setup #######################
+Module setup
+------------
 
 First the module is defined
 
-    -module(spawning).
+    -module(spawning2).
 
-All functions are exported, this makes it easier to test if stuff
-is working
+### Some compiler settings
+
+All functions are exported, this makes it easier to test if stuff is
+working
 
     -compile([export_all]).
 
-## The functions
+
+The functions
+--------------
 
 The first test function
 
